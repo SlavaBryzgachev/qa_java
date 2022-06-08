@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import java.io.IOException;
 import java.util.List;
 
 import ru.yandex.praktikum.Feline;
@@ -21,8 +22,7 @@ public class LionTest {
     private static final String exceptionMessage = "Используйте допустимые значения пола животного - самец или самка";
     @Mock
     private Feline feline;
-    @Rule
-    public ExpectedException exceptionRule = ExpectedException.none();
+
 
     @Test
     public void getKittens() throws Exception {
@@ -52,10 +52,5 @@ public class LionTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void checkExceptionByCreateLion() throws Exception {
-        exceptionRule.expect(Exception.class);
-        exceptionRule.expectMessage(exceptionMessage);
-        Lion lion = new Lion(invalidGender, feline);
-    }
+
 }
